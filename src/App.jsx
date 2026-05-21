@@ -77,7 +77,7 @@ function EmptyState({ title, desc, action, onAction }) {
 
 function CardHover({ children, onClick }) {
   return (
-    <div onClick={onClick} style={S.card}>
+    <div onClick={onClick} style={{ padding: 16, border: "1px solid #ccc" }}>
       {children}
     </div>
   );
@@ -106,12 +106,11 @@ export default function App() {
   ];
 
   return (
-    <div style={S.app}>
-
-      <header style={S.header}>
-        <div style={S.headerInner}>
-          <div onClick={() => setTab("home")}>Kohau</div>
-
+    return (
+  <div>
+    <h1>Kohao is loading 🚀</h1>
+  </div>
+);
           {!isLoggedIn ? (
             <>
               <button onClick={() => setShowAuth("login")}>Sign In</button>
@@ -131,7 +130,7 @@ export default function App() {
         </div>
       </header>
 
-      <main style={S.main}>
+      <main>
         {tab === "home" && <div>Home</div>}
         {tab === "browse" && <div>Browse</div>}
         {tab === "list" && <div>List</div>}
@@ -140,7 +139,7 @@ export default function App() {
         {tab === "plans" && <div>Plans</div>}
       </main>
 
-      <nav style={S.bottomNav}>
+      <nav>
         {TABS.map(t => (
           <button key={t.id} onClick={() => setTab(t.id)}>
             {t.label}
