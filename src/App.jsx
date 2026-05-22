@@ -52,12 +52,6 @@ const S = {
   card: { background: "#fffbf3", border: "1px solid #ddd0b0" },
   input: { width: "100%", padding: "11px 14px", border: "1px solid #ddd0b0", background: "#fffbf3", fontSize: 14 }
 };
-  
-  app: { padding: 20 }, header: { padding: 10, borderBottom: "1px solid #ccc" },
-  headerInner: { display: "flex", justifyContent: "space-between" },
-  main: { padding: 20 },
-  bottomNav: { display: "flex", justifyContent: "space-around" }
-};
 
 function Modal({ onClose, children }) {
   return (
