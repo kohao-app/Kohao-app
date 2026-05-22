@@ -64,13 +64,35 @@ export default function App() {
       </header>
 
       <main style={S.main}>
-       {tab === "home" && <h1>Welcome to Kohao 🧡</h1>}
-       {tab === "browse" && <h1>Browse Listings</h1>}
-       {tab === "list" && <h1>Create a Listing</h1>}
-       {tab === "messages" && <h1>Your Messages</h1>}
-       {tab === "profile" && <h1>Your Profile</h1>}
-       {tab === "plans" && <h1>Plans & Pricing</h1>}
-      </main>
+  {tab === "home" && (
+    <div>
+      <h1>Welcome to Kohao 🧡</h1>
+      <p>Connect. Grow. Belong.</p>
+
+      <div style={{ marginTop: 20 }}>
+        <button>Browse Listings</button>
+        <button style={{ marginLeft: 10 }}>Create Listing</button>
+      </div>
+
+      <div style={{ marginTop: 30 }}>
+        <h3>Categories</h3>
+        <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+          <button>Kai & Food</button>
+          <button>Clothing</button>
+          <button>Services</button>
+          <button>Crafts</button>
+          <button>Home & Garden</button>
+        </div>
+      </div>
+    </div>
+  )}
+
+  {tab === "browse" && <h1>Browse Listings</h1>}
+  {tab === "list" && <h1>Create a Listing</h1>}
+  {tab === "messages" && <h1>Your Messages</h1>}
+  {tab === "profile" && <h1>Your Profile</h1>}
+  {tab === "plans" && <h1>Plans & Pricing</h1>}
+</main>
 
       <nav style={S.bottomNav}>
         {TABS.map((t) => (
