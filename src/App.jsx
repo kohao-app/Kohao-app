@@ -106,58 +106,62 @@ export default function App() {
   ];
 
   return (
-    <div style={S.app}>
+  <div style={S.app}>
 
-      <header style={S.header}>
-        <div style={S.headerInner}>
-          <div onClick={() => setTab("home")}>Kohao</div>
+    <header style={S.header}>
+      <div style={S.headerInner}>
+        <div onClick={() => setTab("home")}>Kohao</div>
 
-          {!isLoggedIn ? (
-            <>
-              <button onClick={() => setShowAuth("login")}>Sign In</button>
-              <button onClick={() => setShowAuth("signup")}>Join</button>
-            </>
-          ) : (
-            <div onClick={() => setTab("profile")}>{user?.name}</div>
-          )}
-        </div>
+        {!isLoggedIn ? (
+          <>
+            <button onClick={() => setShowAuth("login")}>Sign In</button>
+            <button onClick={() => setShowAuth("signup")}>Join</button>
+          </>
+        ) : (
+          <div onClick={() => setTab("profile")}>{user?.name}</div>
+        )}
+      </div>
 
-        <div style={{ display: "flex" }}>
-          {TABS.map(t => (
-            <button key={t.id} onClick={() => setTab(t.id)}>
-              {t.label}
-            </button>
-          ))}
-        </div>
-      </header>
-
-      <main style={S.main}>
-        {tab === "home" && <div>Home</div>}
-        {tab === "browse" && <div>Browse</div>}
-        {tab === "list" && <div>List</div>}
-        {tab === "messages" && <div>Messages</div>}
-        {tab === "profile" && <div>Profile</div>}
-        {tab === "plans" && <div>Plans</div>}
-      </main>
-
-      <nav style={S.bottomNav}>
+      <div style={{ display: "flex" }}>
         {TABS.map(t => (
           <button key={t.id} onClick={() => setTab(t.id)}>
             {t.label}
           </button>
         ))}
-      </nav>
+      </div>
+    </header>
 
-      {showAuth && (
-        <Modal onClose={() => setShowAuth(null)}>
-          <div>Auth</div>
-        </Modal>
-      )}
+    <main style={S.main}>
+      {tab === "home" && <div>Home</div>}
+      {tab === "browse" && <div>Browse</div>}
+      {tab === "list" && <div>List</div>}
+      {tab === "messages" && <div>Messages</div>}
+      {tab === "profile" && <div>Profile</div>}
+      {tab === "plans" && <div>Plans</div>}
+    </main>
 
-      {selectedListing && (
-        <Modal onClose={() => setSelectedListing(null)}>
-          <div>Listing</div>
-        </Modal>
+    <nav style={S.bottomNav}>
+      {TABS.map(t => (
+        <button key={t.id} onClick={() => setTab(t.id)}>
+          {t.label}
+        </button>
+      ))}
+    </nav>
+
+    {showAuth && (
+      <Modal onClose={() => setShowAuth(null)}>
+        <div>Auth</div>
+      </Modal>
+    )}
+
+    {selectedListing && (
+      <Modal onClose={() => setSelectedListing(null)}>
+        <div>Listing</div>
+      </Modal>
+    )}
+
+  </div>
+);
       )}
 
     </div>
