@@ -18,15 +18,15 @@ const REGIONS = [
 const PLANS = [
   {
     id: "free",
-    name: "Korero",
+    name: "Seed",
     price: 0,
     period: "forever",
     desc: "Get started and explore",
     features: ["3 active listings", "Browse offers", "Basic messaging", "Community board"]
   },
   {
-    id: "tuhono",
-    name: "Tuhono",
+    id: "one to one",
+    name: "Grow",
     price: 4.90,
     period: "month",
     desc: "For active traders and makers",
@@ -34,8 +34,8 @@ const PLANS = [
     features: ["Unlimited listings", "Priority placement", "Verified badge", "10 photos per listing", "Transaction history"]
   },
   {
-    id: "pakihi",
-    name: "Pakihi",
+    id: "business",
+    name: "Thrive",
     price: 9.90,
     period: "month",
     desc: "Small businesses and collectives",
