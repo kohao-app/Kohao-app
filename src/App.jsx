@@ -86,7 +86,7 @@ function CardHover({ children, onClick }) {
 /* ================= ROOT APP ================= */
 
 export default function App() 
-  const [tab, setTab] = useState("home");
+  const [tab, setTab] = useState("home");{
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
   const [listings, setListings] = useState([]);
