@@ -118,7 +118,9 @@ export default function App() {
             <button onClick={() => setShowAuth("signup")}>Join</button>
           </>
         ) : (
-          <div onClick={() => setTab("profile")}>{user?.name}</div>
+          <div onClick={() => setTab("profile")}>
+            {user?.name || "Profile"}
+          </div>
         )}
       </div>
 
@@ -154,11 +156,11 @@ export default function App() {
       </Modal>
     )}
 
-          {selectedListing && (
-        <Modal onClose={() => setSelectedListing(null)}>
-          <div>Listing</div>
-        </Modal>
-      )}
+    {selectedListing && (
+      <Modal onClose={() => setSelectedListing(null)}>
+        <div>Listing</div>
+      </Modal>
+    )}
 
-    </div>
-  );
+  </div>
+);
