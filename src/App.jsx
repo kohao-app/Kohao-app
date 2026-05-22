@@ -128,7 +128,10 @@ const [form, setForm] = useState({
 
     <button
       style={{ marginTop: 15 }}
-      onClick={() => {
+      <button onClick={onClose} style={{ float: "right" }}>
+  Close
+</button>
+    
         setListings([
           { ...form, id: Date.now() },
           ...listings
@@ -215,10 +218,21 @@ const [form, setForm] = useState({
       </nav>
 
       {showAuth && (
-        <Modal onClose={() => setShowAuth(false)}>
-          <div>Auth Modal</div>
-        </Modal>
-      )}
+  <Modal onClose={() => setShowAuth(false)}>
+    <div>
+      <h2>Welcome</h2>
+      <p style={{ marginTop: 10 }}>
+        Sign in or join the community
+      </p>
+
+      <input
+        placeholder="Your name"
+        style={{ width: "100%", padding: 10, marginTop: 10 }}
+      />
+
+      <button style={{ marginTop: 15, width: "100%" }}>
+        Continue
+      </button>
     </div>
-  );
-}
+  </Modal>
+)}
