@@ -64,7 +64,12 @@ export default function App() {
       </header>
 
       <main style={S.main}>
-        <h1>{tab}</h1>
+       {tab === "home" && <h1>Welcome to Kohao 🧡</h1>}
+       {tab === "browse" && <h1>Browse Listings</h1>}
+       {tab === "list" && <h1>Create a Listing</h1>}
+       {tab === "messages" && <h1>Your Messages</h1>}
+       {tab === "profile" && <h1>Your Profile</h1>}
+       {tab === "plans" && <h1>Plans & Pricing</h1>}
       </main>
 
       <nav style={S.bottomNav}>
