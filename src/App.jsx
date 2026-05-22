@@ -39,65 +39,80 @@ function Modal({ onClose, children }) {
   );
 }
 
-export default function App() {
-  const [tab, setTab] = useState("home");
-  const [showAuth, setShowAuth] = useState(false);
+export default function App() 
 
-  const TABS = ["home", "browse", "list", "messages", "profile", "plans"];
+const [tab, setTab] = useState("home");
+const [showAuth, setShowAuth] = useState(false);
 
-  return (
-    <div style={S.app}>
-      <header style={S.header}>
-        <div style={S.headerInner}>
-          <div onClick={() => setTab("home")}>Kohao</div>
+const [listings, setListings] = useState([
+  {
+    id: 1,
+    title: "Fresh sourdough bread",
+    desc: "Baked this morning. Happy to trade.",
+    type: "exchange"
+  },
+  {
+    id: 2,
+    title: "Free kids clothes",
+    desc: "Size 4–6, good condition",
+    type: "koha"
+  }
+]);
 
-          <button onClick={() => setShowAuth(true)}>Sign In</button>
-        </div>
-
-        <div>
-          {TABS.map((t) => (
-            <button key={t} onClick={() => setTab(t)}>
-              {t}
-            </button>
-          ))}
-        </div>
-      </header>
+const [form, setForm] = useState({
+  title: "",
+  desc: "",
+  type: "exchange",
+  return: ""
+});
 
       <main style={S.main}>
   {tab === "list" && (
   <div>
     <h1>Share something</h1>
 
-    <p style={{ color: "#555" }}>
-      What would you like to offer or ask for?
-    </p>
+    <input
+      placeholder="Title"
+      value={form.title}
+      onChange={(e) => setForm({ ...form, title: e.target.value })}
+      style={{ width: "100%", padding: 10, marginTop: 10 }}
+    />
 
-    <div style={{ marginTop: 20 }}>
-      <input placeholder="Title (e.g. Homemade bread, Lawn mowing help)" style={{ width: "100%", padding: 10 }} />
-    </div>
+    <textarea
+      placeholder="Description"
+      value={form.desc}
+      onChange={(e) => setForm({ ...form, desc: e.target.value })}
+      style={{ width: "100%", padding: 10, marginTop: 10 }}
+    />
 
     <div style={{ marginTop: 10 }}>
-      <textarea placeholder="Describe what you’re offering or looking for" style={{ width: "100%", padding: 10 }} />
+      <select
+        value={form.type}
+        onChange={(e) => setForm({ ...form, type: e.target.value })}
+      >
+        <option value="exchange">Exchange</option>
+        <option value="koha">Koha</option>
+        <option value="price">Price</option>
+      </select>
     </div>
 
-    <div style={{ marginTop: 20 }}>
-      <label>Type</label>
-      <div style={{ display: "flex", gap: 10, marginTop: 10 }}>
-        <button>Exchange</button>
-        <button>Koha</button>
-        <button>Price</button>
-      </div>
-    </div>
+    <button
+      style={{ marginTop: 15 }}
+      onClick={() => {
+        setListings([
+          { ...form, id: Date.now() },
+          ...listings
+        ]);
 
-    <div style={{ marginTop: 20 }}>
-      <input placeholder="What would you like in return? (optional)" style={{ width: "100%", padding: 10 }} />
-    </div>
-
-    <button style={{ marginTop: 20 }}>
-      Post to community
+        setForm({ title: "", desc: "", type: "exchange", return: "" });
+        setTab("browse");
+      }}
+    >
+      Post
     </button>
   </div>
-)}
+)})}
+        
       {/* COMMUNITY FLOW */}
       <div style={{ marginTop: 40 }}>
         <h3>How it works</h3>
@@ -133,12 +148,33 @@ export default function App() {
     </div>
   )}
 
-  {tab === "browse" && <h1>Explore what people are sharing</h1>}
-  {tab === "list" && <h1>Share something with the community</h1>}
-  {tab === "messages" && <h1>Your conversations</h1>}
-  {tab === "profile" && <h1>Your space</h1>}
-  {tab === "plans" && <h1>Support Kohao</h1>}
-</main>
+  {tab === "browse" && (
+  <div>
+    <h1>Community Feed</h1>
+
+    <div style={{ marginTop: 20 }}>
+      {listings.map((item) => (
+        <div
+          key={item.id}
+          style={{
+            padding: 15,
+            borderBottom: "1px solid #ddd"
+          }}
+        >
+          <strong>{item.title}</strong>
+
+          <p style={{ marginTop: 5 }}>{item.desc}</p>
+
+          <div style={{ marginTop: 5, fontSize: 12, color: "#666" }}>
+            {item.type === "exchange" && "🤝 Open to trade"}
+            {item.type === "koha" && "🎁 Koha / Free"}
+            {item.type === "price" && "💰 Open to offers"}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+)}
 
       <nav style={S.bottomNav}>
         {TABS.map((t) => (
