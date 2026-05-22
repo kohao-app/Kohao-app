@@ -52,7 +52,8 @@ const S = {
   card: { background: "#fffbf3", border: "1px solid #ddd0b0" },
   input: { width: "100%", padding: "11px 14px", border: "1px solid #ddd0b0", background: "#fffbf3", fontSize: 14 }
 };
-app: { padding: 20 },
+  
+  app: { padding: 20 },
   header: { padding: 10, borderBottom: "1px solid #ccc" },
   headerInner: { display: "flex", justifyContent: "space-between" },
   main: { padding: 20 },
@@ -91,7 +92,7 @@ function CardHover({ children, onClick }) {
 
 /* ================= ROOT APP ================= */
 
-export default function App() {
+export default function App() 
   const [tab, setTab] = useState("home");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
