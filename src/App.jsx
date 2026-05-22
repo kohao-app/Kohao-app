@@ -85,7 +85,6 @@ function CardHover({ children, onClick }) {
 
 /* ================= ROOT APP ================= */
 
-const S = {
   app: { padding: 20 },
   header: { padding: 10, borderBottom: "1px solid #ccc" },
   headerInner: { display: "flex", justifyContent: "space-between" },
