@@ -64,28 +64,40 @@ export default function App() {
       </header>
 
       <main style={S.main}>
-  {tab === "home" && (
-    <div>
+  {tab === "list" && (
+  <div>
+    <h1>Share something</h1>
 
-      <h1 style={{ fontSize: 28 }}>Kohao</h1>
-      <p style={{ fontSize: 18, marginTop: 5 }}>
-        Connect. Grow. Belong.
-      </p>
+    <p style={{ color: "#555" }}>
+      What would you like to offer or ask for?
+    </p>
 
-      <p style={{ marginTop: 15, color: "#555" }}>
-        A place to share what you have, find what you need, and support each other.
-      </p>
+    <div style={{ marginTop: 20 }}>
+      <input placeholder="Title (e.g. Homemade bread, Lawn mowing help)" style={{ width: "100%", padding: 10 }} />
+    </div>
 
-      {/* ACTIONS */}
-      <div style={{ marginTop: 25, display: "flex", gap: 10 }}>
-        <button onClick={() => setTab("browse")}>
-          Explore
-        </button>
-        <button onClick={() => setTab("list")}>
-          Share something
-        </button>
+    <div style={{ marginTop: 10 }}>
+      <textarea placeholder="Describe what you’re offering or looking for" style={{ width: "100%", padding: 10 }} />
+    </div>
+
+    <div style={{ marginTop: 20 }}>
+      <label>Type</label>
+      <div style={{ display: "flex", gap: 10, marginTop: 10 }}>
+        <button>Exchange</button>
+        <button>Koha</button>
+        <button>Price</button>
       </div>
+    </div>
 
+    <div style={{ marginTop: 20 }}>
+      <input placeholder="What would you like in return? (optional)" style={{ width: "100%", padding: 10 }} />
+    </div>
+
+    <button style={{ marginTop: 20 }}>
+      Post to community
+    </button>
+  </div>
+)}
       {/* COMMUNITY FLOW */}
       <div style={{ marginTop: 40 }}>
         <h3>How it works</h3>
