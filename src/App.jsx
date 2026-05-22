@@ -67,7 +67,37 @@ const [form, setForm] = useState({
 });
 
       <main style={S.main}>
-  {tab === "list" && (
+ {tab === "home" && (
+  <div style={{ padding: 20 }}>
+    <h1 style={{ fontSize: 32, marginBottom: 10 }}>
+      Welcome to Kohao 🧡
+    </h1>
+
+    <p style={{ marginBottom: 20 }}>
+      Connect. Grow. Belong.
+    </p>
+
+    <div style={{ display: "grid", gap: 12 }}>
+      {listings.length === 0 ? (
+        <div style={{ opacity: 0.6 }}>
+          No listings yet — be the first to share something ✨
+        </div>
+      ) : (
+        listings.map((item, i) => (
+          <div key={i} style={{
+            padding: 12,
+            border: "1px solid #ddd",
+            borderRadius: 8
+          }}>
+            <strong>{item.title}</strong>
+            <div>{item.desc}</div>
+          </div>
+        ))
+      )}
+    </div>
+  </div>
+)}
+        
   <div>
     <h1>Share something</h1>
 
