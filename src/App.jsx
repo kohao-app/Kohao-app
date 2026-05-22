@@ -85,6 +85,15 @@ function CardHover({ children, onClick }) {
 
 /* ================= ROOT APP ================= */
 
+const S = {
+  app: { padding: 20 },
+  header: { padding: 10, borderBottom: "1px solid #ccc" },
+  headerInner: { display: "flex", justifyContent: "space-between" },
+  main: { padding: 20 },
+  bottomNav: { display: "flex", justifyContent: "space-around" }
+};
+
+export default function App() {
 export default function App() {
   const [tab, setTab] = useState("home");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
