@@ -154,14 +154,10 @@ export default function App() {
       </Modal>
     )}
 
-    {selectedListing && (
-      <Modal onClose={() => setSelectedListing(null)}>
-        <div>Listing</div>
-      </Modal>
-    )}
-
-  </div>
-);
+          {selectedListing && (
+        <Modal onClose={() => setSelectedListing(null)}>
+          <div>Listing</div>
+        </Modal>
       )}
 
     </div>
