@@ -106,11 +106,12 @@ export default function App() {
   ];
 
   return (
-    return (
-  <div>
-    <h1>Kohao is loading 🚀</h1>
-  </div>
-);
+    <div style={S.app}>
+
+      <header style={S.header}>
+        <div style={S.headerInner}>
+          <div onClick={() => setTab("home")}>Kohao</div>
+
           {!isLoggedIn ? (
             <>
               <button onClick={() => setShowAuth("login")}>Sign In</button>
@@ -130,7 +131,7 @@ export default function App() {
         </div>
       </header>
 
-      <main>
+      <main style={S.main}>
         {tab === "home" && <div>Home</div>}
         {tab === "browse" && <div>Browse</div>}
         {tab === "list" && <div>List</div>}
@@ -139,7 +140,7 @@ export default function App() {
         {tab === "plans" && <div>Plans</div>}
       </main>
 
-      <nav>
+      <nav style={S.bottomNav}>
         {TABS.map(t => (
           <button key={t.id} onClick={() => setTab(t.id)}>
             {t.label}
@@ -158,6 +159,7 @@ export default function App() {
           <div>Listing</div>
         </Modal>
       )}
+
     </div>
   );
 }
