@@ -66,32 +66,66 @@ export default function App() {
       <main style={S.main}>
   {tab === "home" && (
     <div>
-      <h1>Welcome to Kohao 🧡</h1>
-      <p>Connect. Grow. Belong.</p>
 
-      <div style={{ marginTop: 20 }}>
-        <button>Browse Listings</button>
-        <button style={{ marginLeft: 10 }}>Create Listing</button>
+      <h1 style={{ fontSize: 28 }}>Kohao</h1>
+      <p style={{ fontSize: 18, marginTop: 5 }}>
+        Connect. Grow. Belong.
+      </p>
+
+      <p style={{ marginTop: 15, color: "#555" }}>
+        A place to share what you have, find what you need, and support each other.
+      </p>
+
+      {/* ACTIONS */}
+      <div style={{ marginTop: 25, display: "flex", gap: 10 }}>
+        <button onClick={() => setTab("browse")}>
+          Explore
+        </button>
+        <button onClick={() => setTab("list")}>
+          Share something
+        </button>
       </div>
 
-      <div style={{ marginTop: 30 }}>
-        <h3>Categories</h3>
-        <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+      {/* COMMUNITY FLOW */}
+      <div style={{ marginTop: 40 }}>
+        <h3>How it works</h3>
+
+        <div style={{ marginTop: 10 }}>
+          <p><strong>1.</strong> Share something you have</p>
+          <p><strong>2.</strong> Ask for what you need</p>
+          <p><strong>3.</strong> Connect and exchange</p>
+        </div>
+      </div>
+
+      {/* CATEGORIES */}
+      <div style={{ marginTop: 40 }}>
+        <h3>Explore</h3>
+
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 10 }}>
           <button>Kai & Food</button>
           <button>Clothing</button>
           <button>Services</button>
           <button>Crafts</button>
           <button>Home & Garden</button>
+          <button>Goods</button>
         </div>
       </div>
+
+      {/* COMMUNITY TONE */}
+      <div style={{ marginTop: 40, padding: 15, background: "#f7f7f7" }}>
+        <p style={{ margin: 0 }}>
+          Built on trust, generosity, and community — everyone has something to offer.
+        </p>
+      </div>
+
     </div>
   )}
 
-  {tab === "browse" && <h1>Browse Listings</h1>}
-  {tab === "list" && <h1>Create a Listing</h1>}
-  {tab === "messages" && <h1>Your Messages</h1>}
-  {tab === "profile" && <h1>Your Profile</h1>}
-  {tab === "plans" && <h1>Plans & Pricing</h1>}
+  {tab === "browse" && <h1>Explore what people are sharing</h1>}
+  {tab === "list" && <h1>Share something with the community</h1>}
+  {tab === "messages" && <h1>Your conversations</h1>}
+  {tab === "profile" && <h1>Your space</h1>}
+  {tab === "plans" && <h1>Support Kohao</h1>}
 </main>
 
       <nav style={S.bottomNav}>
